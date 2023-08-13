@@ -5,15 +5,20 @@ import { ListaDeCompraService } from './service/lista-de-compra.service';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
 })
 export class AppComponent implements OnInit {
   title = 'app-lista-de-compras';
-  listaDeCompra!: Array<Item>
+  listaDeCompra!: Array<Item>;
+  itemParaSerEditado!: Item;
 
-  constructor(private listaService: ListaDeCompraService) { }
+  constructor(private listaService: ListaDeCompraService) {}
 
   ngOnInit(): void {
-      this.listaDeCompra = this.listaService.getListaDeCompra(); 
+    this.listaDeCompra = this.listaService.getListaDeCompra();
+  }
+
+  editarItem(item: Item) {
+    this.itemParaSerEditado = item;
   }
 }
