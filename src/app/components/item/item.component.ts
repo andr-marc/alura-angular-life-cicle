@@ -10,6 +10,7 @@ import { EventEmitter } from '@angular/core';
 export class ItemComponent implements OnInit {
   @Input() item!: Item;
   @Output() emitindoItemParaEditar = new EventEmitter();
+  @Output() emitindoIdParaDeletar = new EventEmitter();
 
   faPen = faPen;
   faTrash = faTrash;
@@ -20,5 +21,8 @@ export class ItemComponent implements OnInit {
 
   editarItem() {
     this.emitindoItemParaEditar.emit(this.item);
+  }
+  deletarItem() {
+    this.emitindoIdParaDeletar.emit(this.item.id);
   }
 }
